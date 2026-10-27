@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f8">
+  <meta name="description" content="凌钰棋的个人介绍与经历">
+  <title>凌钰棋 | 个人主页</title>
+  <style>
+:root {
+  color-scheme: light;
+  --ink: #152b3b;
+  --muted: #60717e;
+  --blue: #0754b8;
+  --blue-deep: #063b78;
+  --mint: #d8eee6;
+  --mint-deep: #287b62;
+  --coral: #df7158;
+  --paper: #f4f6f8;
+  --white: #fff;
+  --line: #dbe2e7;
+  --lilac: #e6e2f2;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-size: 16px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+.page-width { width: min(1160px, calc(100% - 72px)); margin-inline: auto; }
+
+.site-header {
+  min-height: 78px;
+  width: min(1280px, calc(100% - 72px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.wordmark { display: inline-flex; align-items: center; gap: 11px; justify-self: start; font-weight: 700; }
+.wordmark-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; background: var(--blue); font-size: 16px; }
+.wordmark-name { font-size: 15px; }
+.main-nav { display: flex; align-items: center; gap: 30px; font-size: 13px; color: var(--muted); }
+.main-nav a { transition: color .2s ease; }
+.main-nav a:hover, .site-footer a:hover { color: var(--blue); }
+.language-toggle { justify-self: end; min-width: 94px; height: 36px; padding: 4px 7px; display: inline-flex; align-items: center; justify-content: space-between; gap: 8px; border: 1px solid #cfd8de; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; font: inherit; font-size: 12px; }
+.language-option { min-width: 28px; text-align: center; }
+.language-option.is-active { color: var(--blue); font-weight: 700; }
+.language-divider { width: 1px; height: 15px; background: #cfd8de; }
+
+.hero { display: grid; grid-template-columns: minmax(250px, 340px) minmax(0, 1fr); gap: clamp(44px, 8vw, 112px); align-items: center; padding-block: 68px 82px; }
+.hero-photo-wrap { position: relative; width: 100%; max-width: 320px; margin-inline: auto; }
+.hero-photo-wrap::before { position: absolute; content: ''; inset: 16px -16px -16px 16px; background: var(--mint); border: 1px solid #b7d8cc; }
+.hero-photo { position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 237 / 273; object-fit: cover; object-position: center; background: #49a5ed; }
+.photo-caption { position: relative; z-index: 2; display: inline-block; margin-top: 24px; color: var(--muted); font-size: 12px; letter-spacing: 0; }
+.eyebrow { display: flex; align-items: center; gap: 11px; margin: 0 0 18px; color: var(--mint-deep); font-size: 12px; font-weight: 700; }
+.eyebrow-line { width: 26px; height: 2px; background: var(--coral); }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1 { margin-bottom: 8px; color: var(--blue-deep); font-size: clamp(48px, 6vw, 76px); line-height: 1.12; font-weight: 700; }
+.hero-subtitle { margin-bottom: 17px; color: var(--ink); font-size: clamp(19px, 2.1vw, 25px); font-weight: 600; line-height: 1.5; }
+.hero-description { max-width: 620px; margin-bottom: 28px; color: var(--muted); font-size: 15px; }
+.hero-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 640px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.hero-fact { min-width: 0; padding: 14px 12px 14px 0; }
+.hero-fact + .hero-fact { padding-left: 17px; border-left: 1px solid var(--line); }
+.hero-fact > span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 11px; }
+.hero-fact strong { display: block; overflow-wrap: anywhere; font-size: 14px; line-height: 1.45; }
+.hero-fact small { color: var(--muted); font-size: 11px; font-weight: 500; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 26px; }
+.button { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 0 17px; font-size: 13px; font-weight: 600; transition: transform .2s ease, background .2s ease; }
+.button:hover { transform: translateY(-2px); }
+.button-primary { color: white; background: var(--blue); }
+.button-primary:hover { background: var(--blue-deep); }
+.button-quiet { border: 1px solid #cbd6dc; background: transparent; }
+.button-quiet:hover { background: var(--white); }
+
+.about-band { background: var(--white); border-block: 1px solid #e9edf0; }
+.about-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 64px; padding-block: 67px 72px; }
+.section-index { margin-bottom: 9px; color: var(--coral); font-size: 11px; font-weight: 700; }
+.section-heading h2, .contact-intro h2 { margin-bottom: 0; color: var(--blue-deep); font-size: 34px; line-height: 1.25; }
+.about-content { padding-top: 6px; }
+.about-lead { max-width: 670px; margin-bottom: 18px; font-size: 23px; line-height: 1.5; font-weight: 600; }
+.about-details { display: grid; grid-template-columns: minmax(0, 1fr) minmax(235px, .74fr); gap: 34px; align-items: start; }
+.about-details > p { max-width: 580px; margin: 0; color: var(--muted); font-size: 14px; }
+.profile-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin: 0; }
+.profile-facts div { min-width: 0; }
+.profile-facts dt { color: var(--muted); font-size: 11px; }
+.profile-facts dd { margin: 2px 0 0; font-size: 13px; font-weight: 600; overflow-wrap: anywhere; }
+
+.experience-section { padding-block: 78px 84px; }
+.section-heading-wide { display: grid; grid-template-columns: auto 1fr; align-items: end; column-gap: 22px; margin-bottom: 38px; }
+.section-heading-wide .section-index { grid-column: 1 / -1; }
+.section-heading-wide h2 { align-self: center; }
+.section-intro { max-width: 420px; margin: 0; color: var(--muted); font-size: 14px; }
+.section-heading-wide .section-intro { justify-self: end; }
+.experience-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.experience-group h3 { display: flex; align-items: center; gap: 11px; margin-bottom: 17px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); font-size: 18px; }
+.heading-marker { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 50%; background: var(--lilac); color: var(--blue-deep); font-size: 11px; }
+.timeline-item { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.timeline-date { margin: 0; color: var(--mint-deep); font-size: 12px; font-weight: 700; }
+.timeline-item h4 { margin: 0 0 3px; font-size: 15px; line-height: 1.5; }
+.timeline-item div p { margin: 0; color: var(--muted); font-size: 13px; }
+
+.highlights-band { background: #e9e7f2; border-block: 1px solid #ddd9eb; }
+.highlights-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 64px; padding-block: 74px 80px; }
+.highlights-layout > .section-heading .section-intro { max-width: 220px; margin-top: 16px; }
+.highlights-content { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(225px, .8fr); gap: 42px; }
+.block-heading { display: flex; align-items: center; gap: 12px; padding-bottom: 13px; border-bottom: 1px solid #c9c5d8; }
+.block-heading h3 { margin: 0; font-size: 18px; }
+.block-number { color: var(--coral); font-size: 11px; font-weight: 700; }
+.award-list, .certificate-list, .honor-points { margin: 16px 0 0; padding: 0; list-style: none; }
+.award-list li { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: 10px; padding: 8px 0; font-size: 13px; line-height: 1.65; }
+.award-date { color: var(--blue); font-size: 11px; font-weight: 700; white-space: nowrap; }
+.honor-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.honor-points li { padding: 6px 9px; border: 1px solid #cbc7dc; color: #4a5062; font-size: 11px; }
+.certificate-list { display: grid; gap: 10px; }
+.certificate-list li { position: relative; padding-left: 15px; font-size: 13px; }
+.certificate-list li::before { position: absolute; top: .8em; left: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--mint-deep); content: ''; }
+.interests { margin-top: 24px; padding-top: 16px; border-top: 1px solid #c9c5d8; }
+.interest-label { color: var(--muted); font-size: 11px; }
+.interest-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
+.interest-list span { padding: 4px 9px; background: var(--white); font-size: 12px; }
+
+.contact-section { display: grid; grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr); gap: 80px; align-items: center; padding-block: 78px 82px; }
+.contact-intro h2 { margin-bottom: 12px; }
+.contact-intro > p:last-child { max-width: 330px; margin: 0; color: var(--muted); font-size: 14px; }
+.contact-links { border-top: 1px solid var(--line); }
+.contact-links a { min-height: 70px; display: grid; grid-template-columns: 75px minmax(0, 1fr) 24px; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
+.contact-label { color: var(--muted); font-size: 12px; }
+.contact-links strong { min-width: 0; font-size: 16px; overflow-wrap: anywhere; }
+.contact-arrow { color: var(--blue); text-align: right; }
+.site-footer { min-height: 64px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.site-footer a { color: var(--ink); }
+
+@media (max-width: 850px) {
+  .page-width, .site-header { width: min(100% - 44px, 680px); }
+  .site-header { grid-template-columns: 1fr auto; gap: 10px; padding-block: 12px; }
+  .main-nav { grid-row: 2; grid-column: 1 / -1; justify-content: space-between; gap: 12px; padding: 5px 0 2px; }
+  .hero { grid-template-columns: minmax(190px, 260px) minmax(0, 1fr); gap: 42px; padding-block: 54px 65px; }
+  .hero-photo-wrap { max-width: 250px; }
+  .about-layout, .highlights-layout { grid-template-columns: 1fr; gap: 27px; }
+  .about-details { grid-template-columns: minmax(0, 1fr) minmax(220px, .8fr); gap: 26px; }
+  .experience-columns { gap: 34px; }
+  .timeline-item { grid-template-columns: 118px minmax(0, 1fr); gap: 14px; }
+  .highlights-content { gap: 28px; }
+  .contact-section { gap: 40px; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  .page-width, .site-header { width: calc(100% - 36px); }
+  .site-header { min-height: auto; }
+  .main-nav { overflow-x: auto; justify-content: flex-start; gap: 23px; white-space: nowrap; scrollbar-width: none; }
+  .main-nav::-webkit-scrollbar { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 36px 52px; }
+  .hero-photo-wrap { width: min(68%, 245px); margin-left: 10px; }
+  .photo-caption { margin-top: 18px; }
+  .hero-copy { min-width: 0; }
+  h1 { font-size: 50px; }
+  .hero-subtitle { font-size: 19px; }
+  .hero-description { font-size: 14px; }
+  .hero-facts { grid-template-columns: 1fr 1fr 1fr; }
+  .hero-fact { padding-right: 7px; }
+  .hero-fact + .hero-fact { padding-left: 9px; }
+  .hero-fact strong { font-size: 12px; }
+  .button { flex: 1 1 auto; }
+  .about-layout { padding-block: 48px 52px; }
+  .section-heading h2, .contact-intro h2 { font-size: 30px; }
+  .about-lead { font-size: 20px; }
+  .about-details { grid-template-columns: 1fr; gap: 23px; }
+  .profile-facts { gap: 13px 18px; }
+  .experience-section { padding-block: 53px 58px; }
+  .section-heading-wide { display: block; margin-bottom: 27px; }
+  .section-heading-wide h2 { margin-bottom: 8px; }
+  .section-heading-wide .section-intro { margin-top: 9px; }
+  .experience-columns { grid-template-columns: 1fr; gap: 34px; }
+  .timeline-item { grid-template-columns: 112px minmax(0, 1fr); gap: 12px; }
+  .timeline-date { font-size: 11px; }
+  .timeline-item h4 { font-size: 14px; }
+  .timeline-item div p { font-size: 12px; }
+  .highlights-layout { padding-block: 50px 54px; }
+  .highlights-content { grid-template-columns: 1fr; gap: 35px; }
+  .award-list li { grid-template-columns: 62px minmax(0, 1fr); font-size: 12px; }
+  .contact-section { grid-template-columns: 1fr; gap: 26px; padding-block: 54px 58px; }
+  .contact-links a { grid-template-columns: 52px minmax(0, 1fr) 18px; min-height: 65px; gap: 8px; }
+  .contact-links strong { font-size: 14px; }
+}
+
+@media print {
+  body { background: white; }
+  .site-header, .hero-actions, .site-footer a { display: none; }
+  .page-width { width: 100%; }
+  .hero, .about-layout, .experience-section, .highlights-layout, .contact-section { padding-block: 24px; }
+  .about-band, .highlights-band { background: white; }
+  a { text-decoration: none; }
+}
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="凌钰棋，返回首页">
+      <span class="wordmark-mark">凌</span>
+      <span class="wordmark-name" data-i18n="brand">凌钰棋</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#about" data-i18n="navAbout">关于</a>
+      <a href="#experience" data-i18n="navExperience">经历</a>
+      <a href="#highlights" data-i18n="navHighlights">荣誉与技能</a>
+      <a href="#contact" data-i18n="navContact">联系</a>
+    </nav>
+    <button class="language-toggle" type="button" aria-label="Switch to English" aria-pressed="false">
+      <span class="language-option is-active" data-language="zh">中文</span>
+      <span class="language-divider" aria-hidden="true"></span>
+      <span class="language-option" data-language="en">EN</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero page-width" aria-labelledby="hero-title">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAqwCrAAD/4QDoRXhpZgAATU0AKgAAAAgABgEaAAUAAAABAAAAVgEbAAUAAAABAAAAXgEoAAMAAAABAAIAAAExAAIAAABDAAAAZgE7AAIAAAALAAAAqodpAAQAAAABAAAAtgAAAAAAAACrAAAAAQAAAKsAAAABQ2FudmEgZG9jPURBR2hzNzBUUzNrIHVzZXI9VUFGMXQ2OE1STG8gYnJhbmQ9QkFGMXR3cW1SRm8gdGVtcGxhdGU9AAB1LTQ2NzQwMTIzAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAjKADAAQAAAABAAAAoQAAAAD/4QqQaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXA6Q3JlYXRvclRvb2w9IkNhbnZhIGRvYz1EQUdoczcwVFMzayB1c2VyPVVBRjF0NjhNUkxvIGJyYW5kPUJBRjF0d3FtUkZvIHRlbXBsYXRlPSI+IDxkYzpjcmVhdG9yPiA8cmRmOlNlcT4gPHJkZjpsaT51LTQ2NzQwMTIzPC9yZGY6bGk+IDwvcmRmOlNlcT4gPC9kYzpjcmVhdG9yPiA8ZGM6dGl0bGU+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPuWHjOmSsOajiyDlia/mnKwgLSAxPC9yZGY6bGk+IDwvcmRmOkFsdD4gPC9kYzp0aXRsZT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPD94cGFja2V0IGVuZD0idyI/PgD/7QBwUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAADccAVoAAxslRxwCAAACAAIcAgUAFOWHjOmSsOajiyDlia/mnKwgLSAxHAJQAAp1LTQ2NzQwMTIzADhCSU0EJQAAAAAAEIpLSh5Qo7j56ysf6ijB1hj/wAARCAChAIwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9sAQwAKCgoKCgoRCgoRGRERERkhGRkZGSEqISEhISEqMyoqKioqKjMzMzMzMzMzPT09PT09R0dHR0dQUFBQUFBQUFBQ/9sAQwEM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" alt="凌钰棋的证件照">
+        <span class="photo-caption" data-i18n="photoCaption">上海海事大学 · 英语翻译</span>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="eyebrow">个人简介 · PERSONAL PROFILE</span></p>
+        <h1 id="hero-title" data-i18n="name">凌钰棋</h1>
+        <p class="hero-subtitle" data-i18n="subtitle">英语翻译专业背景，专注语言表达与跨文化沟通。</p>
+        <p class="hero-description" data-i18n="intro">具备英语教学、翻译协作与校园项目实践经验。期待以扎实的语言能力、清晰的沟通方式和认真负责的态度，参与更多有价值的工作。</p>
+        <div class="hero-facts" aria-label="个人概况">
+          <div class="hero-fact"><span data-i18n="factSchoolLabel">毕业院校</span><strong data-i18n="factSchool">上海海事大学</strong></div>
+          <div class="hero-fact"><span data-i18n="factMajorLabel">专业方向</span><strong data-i18n="factMajor">英语翻译</strong></div>
+          <div class="hero-fact"><span data-i18n="factGpaLabel">平均绩点</span><strong>3.82 <small>/ 4.00</small></strong></div>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#experience"><span data-i18n="ctaExperience">查看我的经历</span><span aria-hidden="true">↘</span></a>
+          <a class="button button-quiet" href="mailto:2895358730@qq.com"><span data-i18n="ctaContact">发送邮件</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-band" id="about">
+      <div class="page-width about-layout">
+        <div class="section-heading">
+          <p class="section-index">01 / PROFILE</p>
+          <h2 data-i18n="aboutTitle">关于我</h2>
+        </div>
+        <div class="about-content">
+          <p class="about-lead" data-i18n="aboutLead">我相信，准确的表达能让不同的人更好地理解彼此。</p>
+          <div class="about-details">
+            <p data-i18n="aboutBody">在上海海事大学学习英语翻译期间，我积累了课堂教学、商务英语辅导、语料制作和校园活动组织等经验。学习与实践让我逐渐形成了耐心、细致的工作习惯，也让我更愿意在语言服务与教育交流中持续成长。</p>
+            <dl class="profile-facts">
+              <div><dt data-i18n="politicalLabel">政治面貌</dt><dd data-i18n="political">中共党员</dd></div>
+              <div><dt data-i18n="schoolLabel">毕业院校</dt><dd data-i18n="school">上海海事大学</dd></div>
+              <div><dt data-i18n="studyLabel">学习时间</dt><dd>2021.09 — 2025.06</dd></div>
+              <div><dt data-i18n="majorLabel">专业</dt><dd data-i18n="major">英语翻译</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-section page-width" id="experience">
+      <div class="section-heading section-heading-wide">
+        <p class="section-index">02 / EXPERIENCE</p>
+        <h2 data-i18n="experienceTitle">实践经历</h2>
+        <p class="section-intro" data-i18n="experienceIntro">从课堂到语言服务，把专业能力放进真实场景。</p>
+      </div>
+      <div class="experience-columns">
+        <div class="experience-group">
+          <h3><span class="heading-marker">A</span><span data-i18n="teachingTitle">教学与翻译</span></h3>
+          <article class="timeline-item">
+            <p class="timeline-date">2025.02 — 2025.03</p>
+            <div><h4 data-i18n="job1Title">佛山龙湾实验学校</h4><p data-i18n="job1Body">初中英语实习教师</p></div>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">2023.11 — 2024.06</p>
+            <div><h4 data-i18n="job2Title">上海海事大学</h4><p data-i18n="job2Body">商务英语教师</p></div>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">2023.10 — 2023.12</p>
+            <div><h4 data-i18n="job3Title">上海临港自贸区管委会</h4><p data-i18n="job3Body">参与语料库制作，担任翻译组成员</p></div>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">2022.07 — 2022.08</p>
+            <div><h4 data-i18n="job4Title">佛山 SDMen 少儿英语学院</h4><p data-i18n="job4Body">助教</p></div>
+          </article>
+        </div>
+        <div class="experience-group campus-group">
+          <h3><span class="heading-marker">B</span><span data-i18n="campusTitle">校园参与</span></h3>
+          <article class="timeline-item">
+            <p class="timeline-date">2024.02 — 2024.05</p>
+            <div><h4 data-i18n="campus1Title">多语言服务中心</h4><p data-i18n="campus1Body">大活部干事</p></div>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">2023.09 — 2024.11</p>
+            <div><h4 data-i18n="campus2Title">SMU 勤助成长中心</h4><p data-i18n="campus2Body">新媒体部部长</p></div>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">2023.05 — 2024.06</p>
+            <div><h4 data-i18n="campus3Title">英语绘本活动</h4><p data-i18n="campus3Body">绘本小老师</p></div>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">2021.09 — 2022.06</p>
+            <div><h4 data-i18n="campus4Title">班级团支部</h4><p data-i18n="campus4Body">团支书</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlights-band" id="highlights">
+      <div class="page-width highlights-layout">
+        <div class="section-heading">
+          <p class="section-index">03 / HIGHLIGHTS</p>
+          <h2 data-i18n="highlightsTitle">荣誉与技能</h2>
+          <p class="section-intro" data-i18n="highlightsIntro">持续学习，也在一次次实践中检验能力。</p>
+        </div>
+        <div class="highlights-content">
+          <div class="highlight-block">
+            <div class="block-heading"><span class="block-number">01</span><h3 data-i18n="awardsTitle">竞赛与项目</h3></div>
+            <ul class="award-list">
+              <li><span class="award-date">2024.04</span><span data-i18n="award1">第29届中国日报社“21世纪杯”全国英语演讲比赛上海赛区一等奖</span></li>
+              <li><span class="award-date">2024.04</span><span data-i18n="award2">ETTBL 全国商务英语翻译大赛笔译华东赛区二等奖</span></li>
+              <li><span class="award-date">2024.03</span><span data-i18n="award3">第26届“外研社·国才杯”全国大学生英语辩论赛上海赛区三等奖</span></li>
+              <li><span class="award-date">2023.09</span><span data-i18n="award4">第八届“外教社杯”上海市高校学生跨文化交际大赛校选赛二等奖</span></li>
+              <li><span class="award-date">2023—24</span><span data-i18n="award5">参与市级大学生创新项目；主持校级大学生创新项目</span></li>
+            </ul>
+            <ul class="honor-points">
+              <li data-i18n="honor1">2024 年校二等奖学金</li>
+              <li data-i18n="honor2">2022 年校“三好学生”</li>
+              <li data-i18n="honor3">2022 年校二等奖学金</li>
+            </ul>
+          </div>
+          <div class="highlight-block skills-block">
+            <div class="block-heading"><span class="block-number">02</span><h3 data-i18n="certificatesTitle">证书与语言能力</h3></div>
+            <ul class="certificate-list">
+              <li data-i18n="certificate1">高中英语教师资格证书</li>
+              <li data-i18n="certificate2">上海市高级口译证书</li>
+              <li data-i18n="certificate3">英语专业四级（良好）</li>
+              <li data-i18n="certificate4">英语专业八级（良好）</li>
+              <li data-i18n="certificate5">CET-6（611）</li>
+              <li data-i18n="certificate6">普通话二级甲等</li>
+            </ul>
+            <div class="interests">
+              <span class="interest-label" data-i18n="interestsLabel">兴趣爱好</span>
+              <div class="interest-list"><span data-i18n="interest1">古筝</span><span data-i18n="interest2">葫芦丝</span><span data-i18n="interest3">咏春</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section page-width" id="contact">
+      <div class="contact-intro">
+        <p class="section-index">04 / CONTACT</p>
+        <h2 data-i18n="contactTitle">保持联系</h2>
+        <p data-i18n="contactBody">感谢阅读我的介绍。欢迎通过电话或邮件与我联系。</p>
+      </div>
+      <div class="contact-links">
+        <a href="tel:13823437757"><span class="contact-label" data-i18n="phoneLabel">电话</span><strong>138 2343 7757</strong><span class="contact-arrow" aria-hidden="true">↗</span></a>
+        <a href="mailto:2895358730@qq.com"><span class="contact-label" data-i18n="emailLabel">邮箱</span><strong>2895358730@qq.com</strong><span class="contact-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer page-width">
+    <span data-i18n="footer">凌钰棋 · 个人主页</span>
+    <a href="#top" data-i18n="backToTop">返回顶部 ↑</a>
+  </footer>
+  <script>
+const translations = {
+  zh: {
+    brand: '凌钰棋', navAbout: '关于', navExperience: '经历', navHighlights: '荣誉与技能', navContact: '联系',
+    photoCaption: '上海海事大学 · 英语翻译', eyebrow: '个人简介 · PERSONAL PROFILE', name: '凌钰棋',
+    subtitle: '英语翻译专业背景，专注语言表达与跨文化沟通。',
+    intro: '具备英语教学、翻译协作与校园项目实践经验。期待以扎实的语言能力、清晰的沟通方式和认真负责的态度，参与更多有价值的工作。',
+    factSchoolLabel: '毕业院校', factSchool: '上海海事大学', factMajorLabel: '专业方向', factMajor: '英语翻译', factGpaLabel: '平均绩点',
+    ctaExperience: '查看我的经历', ctaContact: '发送邮件', aboutTitle: '关于我',
+    aboutLead: '我相信，准确的表达能让不同的人更好地理解彼此。',
+    aboutBody: '在上海海事大学学习英语翻译期间，我积累了课堂教学、商务英语辅导、语料制作和校园活动组织等经验。学习与实践让我逐渐形成了耐心、细致的工作习惯，也让我更愿意在语言服务与教育交流中持续成长。',
+    politicalLabel: '政治面貌', political: '中共党员', schoolLabel: '毕业院校', school: '上海海事大学', studyLabel: '学习时间', majorLabel: '专业', major: '英语翻译',
+    experienceTitle: '实践经历', experienceIntro: '从课堂到语言服务，把专业能力放进真实场景。', teachingTitle: '教学与翻译',
+    job1Title: '佛山龙湾实验学校', job1Body: '初中英语实习教师', job2Title: '上海海事大学', job2Body: '商务英语教师',
+    job3Title: '上海临港自贸区管委会', job3Body: '参与语料库制作，担任翻译组成员', job4Title: '佛山 SDMen 少儿英语学院', job4Body: '助教',
+    campusTitle: '校园参与', campus1Title: '多语言服务中心', campus1Body: '大活部干事', campus2Title: 'SMU 勤助成长中心', campus2Body: '新媒体部部长',
+    campus3Title: '英语绘本活动', campus3Body: '绘本小老师', campus4Title: '班级团支部', campus4Body: '团支书',
+    highlightsTitle: '荣誉与技能', highlightsIntro: '持续学习，也在一次次实践中检验能力。', awardsTitle: '竞赛与项目',
+    award1: '第29届中国日报社“21世纪杯”全国英语演讲比赛上海赛区一等奖',
+    award2: 'ETTBL 全国商务英语翻译大赛笔译华东赛区二等奖',
+    award3: '第26届“外研社·国才杯”全国大学生英语辩论赛上海赛区三等奖',
+    award4: '第八届“外教社杯”上海市高校学生跨文化交际大赛校选赛二等奖',
+    award5: '参与市级大学生创新项目；主持校级大学生创新项目',
+    honor1: '2024 年校二等奖学金', honor2: '2022 年校“三好学生”', honor3: '2022 年校二等奖学金',
+    certificatesTitle: '证书与语言能力', certificate1: '高中英语教师资格证书', certificate2: '上海市高级口译证书',
+    certificate3: '英语专业四级（良好）', certificate4: '英语专业八级（良好）', certificate5: 'CET-6（611）', certificate6: '普通话二级甲等',
+    interestsLabel: '兴趣爱好', interest1: '古筝', interest2: '葫芦丝', interest3: '咏春',
+    contactTitle: '保持联系', contactBody: '感谢阅读我的介绍。欢迎通过电话或邮件与我联系。', phoneLabel: '电话', emailLabel: '邮箱',
+    footer: '凌钰棋 · 个人主页', backToTop: '返回顶部 ↑'
+  },
+  en: {
+    brand: 'Ling Yuqi', navAbout: 'About', navExperience: 'Experience', navHighlights: 'Awards & Skills', navContact: 'Contact',
+    photoCaption: 'Shanghai Maritime University · English Translation', eyebrow: 'PERSONAL PROFILE', name: 'Ling Yuqi',
+    subtitle: 'English translation background, focused on clear expression and cross-cultural communication.',
+    intro: 'Experience in English teaching, translation collaboration and campus projects. I bring strong language skills, thoughtful communication and a dependable approach to every project.',
+    factSchoolLabel: 'EDUCATION', factSchool: 'Shanghai Maritime University', factMajorLabel: 'FIELD', factMajor: 'English Translation', factGpaLabel: 'GPA',
+    ctaExperience: 'Explore experience', ctaContact: 'Send an email', aboutTitle: 'About me',
+    aboutLead: 'I believe clear language helps people understand one another.',
+    aboutBody: 'While studying English Translation at Shanghai Maritime University, I gained experience in classroom teaching, Business English tutoring, corpus development and campus event organization. These experiences shaped my patient, detail-oriented working style and strengthened my interest in language services and educational exchange.',
+    politicalLabel: 'Membership', political: 'Communist Party of China', schoolLabel: 'University', school: 'Shanghai Maritime University', studyLabel: 'Study period', majorLabel: 'Major', major: 'English Translation',
+    experienceTitle: 'Experience', experienceIntro: 'Applying language skills in classrooms, translation work and campus life.', teachingTitle: 'Teaching & Translation',
+    job1Title: 'Longwan Experimental School, Foshan', job1Body: 'Middle school English teaching intern', job2Title: 'Shanghai Maritime University', job2Body: 'Business English teacher',
+    job3Title: 'Lingang Free Trade Zone Administrative Committee', job3Body: 'Corpus development; member of the translation team', job4Title: 'SDMen Children’s English Institute, Foshan', job4Body: 'Assistant teacher',
+    campusTitle: 'Campus involvement', campus1Title: 'Multilingual Service Center', campus1Body: 'Student affairs team member', campus2Title: 'SMU Work-Study Growth Center', campus2Body: 'Head of New Media',
+    campus3Title: 'English picture-book program', campus3Body: 'Picture-book instructor', campus4Title: 'Class youth league branch', campus4Body: 'Branch secretary',
+    highlightsTitle: 'Awards & Skills', highlightsIntro: 'A record of continued learning and hands-on practice.', awardsTitle: 'Competitions & Projects',
+    award1: '1st Prize, Shanghai Division, 29th China Daily “21st Century Cup” National English Speaking Competition',
+    award2: '2nd Prize, East China Division, ETTBL National Business English Translation Contest (written translation)',
+    award3: '3rd Prize, Shanghai Division, 26th FLTRP · ETIC National College English Debate Competition',
+    award4: '2nd Prize, university selection, 8th SFLEP Cup Shanghai Intercultural Communication Competition',
+    award5: 'Participant in a municipal student innovation project; lead of a university-level student innovation project',
+    honor1: 'University Second-Class Scholarship, 2024', honor2: 'Merit Student, 2022', honor3: 'University Second-Class Scholarship, 2022',
+    certificatesTitle: 'Certificates & Language Skills', certificate1: 'Senior High School English Teacher Qualification', certificate2: 'Shanghai Advanced Interpretation Certificate',
+    certificate3: 'TEM-4 (Good)', certificate4: 'TEM-8 (Good)', certificate5: 'CET-6 (611)', certificate6: 'Putonghua Proficiency Test, Level 2-A',
+    interestsLabel: 'INTERESTS', interest1: 'Guzheng', interest2: 'Hulusi', interest3: 'Wing Chun',
+    contactTitle: 'Let’s connect', contactBody: 'Thank you for reading. I welcome a conversation by phone or email.', phoneLabel: 'PHONE', emailLabel: 'EMAIL',
+    footer: 'Ling Yuqi · Personal Profile', backToTop: 'Back to top ↑'
+  }
+};
+
+const languageButton = document.querySelector('.language-toggle');
+const languageOptions = document.querySelectorAll('.language-option');
+
+function setLanguage(language) {
+  const copy = translations[language];
+  document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+  document.title = language === 'zh' ? '凌钰棋 | 个人主页' : 'Ling Yuqi | Personal Profile';
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const key = element.dataset.i18n;
+    if (copy[key]) element.textContent = copy[key];
+  });
+  languageOptions.forEach((option) => {
+    const active = option.dataset.language === language;
+    option.classList.toggle('is-active', active);
+  });
+  languageButton.setAttribute('aria-pressed', String(language === 'en'));
+  languageButton.setAttribute('aria-label', language === 'zh' ? 'Switch to English' : '切换为中文');
+  try { localStorage.setItem('profile-language', language); } catch (_) {}
+}
+
+languageButton.addEventListener('click', () => {
+  const nextLanguage = document.documentElement.lang === 'zh-CN' ? 'en' : 'zh';
+  setLanguage(nextLanguage);
+});
+
+let savedLanguage = 'zh';
+try { savedLanguage = localStorage.getItem('profile-language') || 'zh'; } catch (_) {}
+setLanguage(savedLanguage === 'en' ? 'en' : 'zh');
+
+  </script>
+</body>
+</html>
